@@ -28,11 +28,15 @@ The app comes with two buttons for the two scenarios, `Delete Mote First` and `L
 
 ## Delete Mote First
 
+![Delete Mote First](docs/mote_first.gif)
+
 In this scenario, the mote and enemy both appear. The enemy is scheduled to die in one second. Before this can happen, the mote disappears.
 
 When the enemy dies, it leaves a `Corpse`. For some reason, the `Corpse` is drawn on top of the `Player`, despite its priority being lower.
 
 ## Leave Corpse First
+
+![Leave Corpse First](docs/corpse_first.gif)
 
 In this scenario, the enemy is also scheduled to die in one second. After doing so, it leaves a corpse. Shortly afterwards, the mote vanishes as well.
 
