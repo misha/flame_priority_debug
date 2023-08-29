@@ -42,8 +42,8 @@ In this scenario, the enemy is also scheduled to die in one second. After doing 
 
 The `Corpse` is correctly drawn under the `Player` in this scenario.
 
-# Conclusion
+# Expected Behavior
 
-For some reason, the mote disappearing first changes the paint order, despite priorities being the same for both scenarios.
+I expected that the corpse be painted under the player in both situations, but in this example, the mote disappearing first causes the corpse to now paint on top of the player instead.
 
 Any ideas?
