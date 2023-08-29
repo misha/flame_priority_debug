@@ -9,21 +9,28 @@ void main() {
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
 
   @override
+  State<StatefulWidget> createState() {
+    return AppState();
+  }
+}
+
+class AppState extends State<App> {
+  static FlameGame buildMoteBeforeEnemyGame() {
+    return PriorityDebugGame(moteDuration: 0.5);
+  }
+
+  static FlameGame buildMoteAfterEnemyGame() {
+    return PriorityDebugGame(moteDuration: 1.5);
+  }
+
+  FlameGame? game;
+
+  @override
   Widget build(BuildContext context) {
-    final game = PriorityDebugGame();
-
-    void playMoteBeforeEnemy() {
-      game.play(moteDuration: 0.5);
-    }
-
-    void playMoteAfterEnemy() {
-      game.play(moteDuration: 1.5);
-    }
-
     return MaterialApp(
       title: 'Priority Debug',
       theme: ThemeData.dark(),
@@ -31,7 +38,8 @@ class App extends StatelessWidget {
         child: Scaffold(
           body: Stack(
             children: [
-              GameWidget(game: game),
+              if (game != null) //
+                GameWidget(game: game!),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Row(
@@ -39,12 +47,16 @@ class App extends StatelessWidget {
                   children: [
                     const Spacer(),
                     TextButton(
-                      onPressed: playMoteBeforeEnemy,
+                      onPressed: () => setState(() {
+                        game = buildMoteBeforeEnemyGame();
+                      }),
                       child: const Text('Delete Mote First'),
                     ),
                     const Spacer(),
                     TextButton(
-                      onPressed: playMoteAfterEnemy,
+                      onPressed: () => setState(() {
+                        game = buildMoteAfterEnemyGame();
+                      }),
                       child: const Text('Leave Corpse First'),
                     ),
                     const Spacer(),

@@ -5,16 +5,16 @@ import 'package:flame/game.dart';
 import 'package:priority_debug/components.dart';
 
 class PriorityDebugGame extends FlameGame {
-  World world = DebugWorld();
+  PriorityDebugGame({
+    required this.moteDuration,
+  });
 
-  void play({
-    required double moteDuration,
-  }) {
-    if (world.isMounted) {
-      world.removeFromParent();
-    }
+  final double moteDuration;
 
-    world = DebugWorld();
+  final world = DebugWorld();
+
+  @override
+  void onLoad() {
     final player = Player();
     world.add(player);
 
