@@ -1,0 +1,11 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "files.insertFinalNewline": true,
+  "cSpell.enabled": false,
+  "dart.lineLength": 100,
+  "json.format.keepLines": true,
+  "[dart]": {
+    "editor.formatOnSave": true
+  },
+}
