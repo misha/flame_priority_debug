@@ -39,7 +39,7 @@ class PriorityDebugGame extends FlameGame {
         enemy.kill();
       } on AssertionError catch (_) {
         // If you removed the world while waiting,
-        // this throws with `game != null`. Ignore it.
+        // this throws with `game == null`. Ignore it.
       }
     });
 
