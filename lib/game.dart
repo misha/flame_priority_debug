@@ -27,7 +27,7 @@ class PriorityDebugGame extends FlameGame {
       ..x += 10;
 
     final enemy = Enemy() //
-      ..position = position.clone()
+      ..position = position
       ..addToParent(world);
 
     Mote(duration: moteDuration) //
